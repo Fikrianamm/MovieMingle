@@ -4,6 +4,7 @@ import axios from "axios"
 import 'dotenv/config'
 
 const app = express()
+const port = 3000
 const API_KEY = process.env.API_KEY
 const ACCESS_TOKEN = process.env.API_READ_ACCESS_TOKEN
 const baseURL = `https://api.themoviedb.org/3`
@@ -61,4 +62,8 @@ app.get('/',async (req,res)=>{
     const genreTv = await getGenreTv()
 
     res.render('index.ejs',{ showCarousel : true ,nowPlayingMovie, popularMovie,topRatedMovie, upcomingMovie, genreMovie, genreTv, baseImg : "https://image.tmdb.org/t/p/w500"})
+})
+
+app.listen(port,()=>{
+    console.log(`Server Running on port ${port}`);
 })

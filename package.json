@@ -4,10 +4,14 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run tailwind\"",
+    "start": "node index.js",
     "server": "nodemon index.js",
-    "tailwind": "npx tailwindcss -i ./public/styles/input.css -o ./public/styles/output.css --watch"
+    "tailwind": "npx tailwindcss -i ./public/styles/input.css -o ./public/styles/output.css --watch",
+    "node": "concurrently \"npm run server\" \"npm run tailwind\""
   },
   "keywords": [],
   "author": "",
