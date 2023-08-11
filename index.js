@@ -17,37 +17,37 @@ const config = {
 app.use(express.static('public'))
 app.use('/node_modules', express.static('node_modules'));
 
-async function getMovieNowPlaying(req,res){
+async function getMovieNowPlaying(){
     const response = await axios.get(`${baseURL}/movie/now_playing`,config)
     const result = response.data.results
     return result;
 }
 
-async function getMoviePopular(req,res){
+async function getMoviePopular(){
     const response = await axios.get(`${baseURL}/movie/popular`,config)
     const result = response.data.results
     return result;
 }
 
-async function getMovieTopRated(req,res){
+async function getMovieTopRated(){
     const response = await axios.get(`${baseURL}/movie/top_rated`,config)
     const result = response.data.results
     return result;
 }
 
-async function getMovieUpcoming(req,res){
+async function getMovieUpcoming(){
     const response = await axios.get(`${baseURL}/movie/upcoming`,config)
     const result = response.data.results
     return result;
 }
 
-async function getGenreMovie(req,res){
+async function getGenreMovie(){
     const response = await axios.get(`${baseURL}/genre/movie/list`,config)
     const result = response.data.genres
     return result;
 }
 
-async function getGenreTv(req,res){
+async function getGenreTv(){
     const response = await axios.get(`${baseURL}/genre/tv/list`,config)
     const result = response.data.genres
     return result;
