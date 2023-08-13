@@ -1,11 +1,10 @@
 import express from "express"
-import bodyParser from "body-parser"
+// import bodyParser from "body-parser"
 import axios from "axios"
 import 'dotenv/config'
 
 const app = express()
 const port = 3000
-const API_KEY = process.env.API_KEY
 const ACCESS_TOKEN = process.env.API_READ_ACCESS_TOKEN
 const baseURL = `https://api.themoviedb.org/3`
 const config = {
