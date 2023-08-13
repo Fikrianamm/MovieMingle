@@ -8,7 +8,7 @@ This is my practice project for consuming the TMDB API.
 - [Introduction](#introduction)
 - [Getting Started](#getting-started)
 
-##Preview
+## Preview
 
 ![Preview Screenshot](https://github.com/Fikrianamm/MovieMingle/assets/106758350/6c1bfddc-3a74-465b-abb7-ebbf7618b3e5)
 
@@ -31,10 +31,10 @@ API_READ_ACCESS_TOKEN=YOUR_API_TOKEN
 
 ```bash
 # Clone the repository
-git clone https://github.com/fikrianamm/your-repo.git](https://github.com/Fikrianamm/MovieMingle.git
+git clone https://github.com/Fikrianamm/MovieMingle.git
 
 # Change to the project directory
-cd your-repo
+cd directory
 
 # Install dependencies
 npm install
