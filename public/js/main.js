@@ -44,13 +44,16 @@ themeToggleBtn.addEventListener('click', function() {
 movieCard.forEach(card => {
 const movieInfo = card.querySelector(".movie-info")
     card.addEventListener('mouseenter',()=>{
-        console.log('on hover');
         movieInfo.classList.remove("hidden")
         movieInfo.classList.add("flex")
     })
     card.addEventListener('mouseleave',()=>{
-        console.log('on hover');
         movieInfo.classList.remove("flex")
         movieInfo.classList.add("hidden")
+    })
+
+    movieInfo.addEventListener('click',()=>{
+        const movieId = movieInfo.getAttribute('data-movie-id')
+        window.location.href = `/movie/${movieId}`    
     })
 });

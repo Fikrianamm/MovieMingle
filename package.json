@@ -8,10 +8,9 @@
     "node": "18.x"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "concurrently \"npm run server\" \"npm run tailwind\"",
     "server": "nodemon index.js",
-    "tailwind": "npx tailwindcss -i ./public/styles/input.css -o ./public/styles/output.css --watch",
-    "node": "concurrently \"npm run server\" \"npm run tailwind\""
+    "tailwind": "npx tailwindcss -i ./public/styles/input.css -o ./public/styles/output.css --watch"
   },
   "keywords": [],
   "author": "",

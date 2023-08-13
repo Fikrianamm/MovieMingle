@@ -1,0 +1,68 @@
+<%- include('components/header.ejs') %>
+<div class="py-6 bg-white dark:bg-gray-900 flex justify-center">
+  <div class="w-full md:w-3/4">
+    <div class="m-4 flex justify-between text-gray-800 dark:text-white px-2">
+      <h2 class="text-2xl font-bold"><%= genre %></h2>
+      <a href="/popular">
+        <svg
+          class="w-6 h-6"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 18 18"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 1v16M1 9h16"
+          />
+        </svg>
+      </a>
+    </div>
+    <div
+      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full px-4"
+    >
+      <% result.forEach(movie => {%>
+      <div class="relative movie-card">
+        <img
+          class="h-auto max-w-full rounded-lg"
+          src="<%= baseImg %><%= movie.poster_path %>"
+          alt=""
+        />
+        <div
+          class="movie-info absolute hidden flex-col gap-4 items-center justify-center bg-slate-900 bg-opacity-30 w-full h-full z-10 top-0 text-white text-base font-bold text-center cursor-pointer"
+          data-movie-id="<%= movie.id %>"
+        >
+          <h1 class="text-2xl max-w-[75%]"><%= movie.title %></h1>
+          <div class="flex items-center">
+            <svg
+              class="w-4 md:w-8 h-4 md:h-8 text-yellow-300 mr-1"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+            <p class="ml-2 text-sm md:text-lg font-bold text-white">
+              <%= movie.vote_average%>
+            </p>
+            <span
+              class="w-1 md:w-2 h-1 md:h-2 mx-1.5 bg-gray-200 rounded-full"
+            ></span>
+            <p class="text-sm md:text-lg font-medium text-white">
+              <%= movie.vote_count%> Voted
+            </p>
+          </div>
+        </div>
+      </div>
+      <%}); %>
+    </div>
+  </div>
+</div>
+
+<%- include('components/footer.ejs') %>

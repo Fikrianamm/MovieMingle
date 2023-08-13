@@ -54,14 +54,41 @@ async function getGenreTv(){
 }
 
 app.get('/',async (req,res)=>{
+    try {
     const nowPlayingMovie = await getMovieNowPlaying()
     const popularMovie = await getMoviePopular()
     const topRatedMovie = await getMovieTopRated()
     const upcomingMovie = await getMovieUpcoming()
     const genreMovie = await getGenreMovie()
     const genreTv = await getGenreTv()
+    const data = {showCarousel : true ,nowPlayingMovie, popularMovie,topRatedMovie, upcomingMovie, genreMovie, genreTv, baseImg : "https://image.tmdb.org/t/p/w500"} 
 
-    res.render('index.ejs',{ showCarousel : true ,nowPlayingMovie, popularMovie,topRatedMovie, upcomingMovie, genreMovie, genreTv, baseImg : "https://image.tmdb.org/t/p/w500"})
+    res.render('index.ejs', data )
+    } catch (error) {
+        console.error(`Error : ${error.message} `)
+        res.render('error.ejs',{error: error.message})
+    }
+})
+
+app.get("/:genre",async(req,res)=>{
+    const genre = req.params.genre
+    const response = await axios.get(`${baseURL}/movie/${genre}`,config)
+    const result = response.data.results
+    const data ={result,showCarousel:false,genre, baseImg : "https://image.tmdb.org/t/p/w500"}
+        res.render('lists.ejs',data)
+})
+
+app.get("/movie/:id", async (req,res)=>{
+    try {
+        const movieId = req.params.id
+        const response = await axios.get(`${baseURL}/movie/${movieId}`,config)
+        const result = response.data
+        const data ={result,showCarousel:false, baseImg : "https://image.tmdb.org/t/p/w500"}
+        res.render('movie.ejs',data)
+        } catch (error) {
+            console.error(`Error : ${error.message} `)
+            res.render('error.ejs',{error: error.message})
+        }
 })
 
 app.listen(port,()=>{

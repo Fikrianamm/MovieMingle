@@ -3,9 +3,11 @@ include('components/carousel.ejs')%> <%} %>
 
 <div class="py-6 bg-white dark:bg-gray-900 flex justify-center">
   <div class="w-full md:w-3/4">
-    <div class="m-4 flex justify-between text-gray-800 dark:text-white px-2">
+    <div
+      class="m-4 flex justify-between text-gray-800 dark:text-white px-2 py-2"
+    >
       <h2 class="text-2xl font-bold">Popular</h2>
-      <div>
+      <a href="/popular">
         <svg
           class="w-6 h-6"
           aria-hidden="true"
@@ -21,12 +23,12 @@ include('components/carousel.ejs')%> <%} %>
             d="M9 1v16M1 9h16"
           />
         </svg>
-      </div>
+      </a>
     </div>
     <div
       class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full px-4"
     >
-      <% popularMovie.forEach(movie => {%>
+      <% popularMovie.forEach((movie, index) => { if (index<12) {%>
       <div class="relative movie-card">
         <img
           class="h-auto max-w-full rounded-lg"
@@ -34,7 +36,8 @@ include('components/carousel.ejs')%> <%} %>
           alt=""
         />
         <div
-          class="movie-info absolute hidden flex-col gap-4 items-center justify-center bg-slate-900 bg-opacity-30 w-full h-full z-10 top-0 text-white text-base font-bold text-center"
+          class="movie-info absolute hidden flex-col gap-4 items-center justify-center bg-slate-900 bg-opacity-30 w-full h-full z-10 top-0 text-white text-base font-bold text-center cursor-pointer"
+          data-movie-id="<%= movie.id %>"
         >
           <h1 class="text-2xl max-w-[75%]"><%= movie.title %></h1>
           <div class="flex items-center">
@@ -61,15 +64,17 @@ include('components/carousel.ejs')%> <%} %>
           </div>
         </div>
       </div>
-      <%}); %>
+      <%}}); %>
     </div>
   </div>
 </div>
 <div class="py-6 bg-white dark:bg-gray-900 flex justify-center">
   <div class="w-full md:w-3/4">
-    <div class="m-4 flex justify-between text-gray-800 dark:text-white px-2">
+    <div
+      class="m-4 flex justify-between text-gray-800 dark:text-white px-2 py-2"
+    >
       <h2 class="text-2xl font-bold">Top Rated</h2>
-      <div>
+      <a href="/top_  rated">
         <svg
           class="w-6 h-6"
           aria-hidden="true"
@@ -85,12 +90,13 @@ include('components/carousel.ejs')%> <%} %>
             d="M9 1v16M1 9h16"
           />
         </svg>
-      </div>
+      </a>
     </div>
     <div
-      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full px-4"
+      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-max grid-rows-3 gap-4 md:gap-6 w-full px-4"
     >
-      <% topRatedMovie.forEach(movie => {%>
+      <% topRatedMovie.forEach((movie, index) => { if (index<12) {%>
+
       <div class="relative movie-card">
         <img
           class="h-auto max-w-full rounded-lg"
@@ -98,7 +104,8 @@ include('components/carousel.ejs')%> <%} %>
           alt=""
         />
         <div
-          class="movie-info absolute hidden flex-col gap-4 items-center justify-center bg-slate-900 bg-opacity-30 w-full h-full z-10 top-0 text-white text-base font-bold text-center"
+          class="movie-info absolute hidden flex-col gap-4 items-center justify-center bg-slate-900 bg-opacity-30 w-full h-full z-10 top-0 text-white text-base font-bold text-center cursor-pointer"
+          data-movie-id="<%= movie.id %>"
         >
           <h1 class="text-2xl max-w-[75%]"><%= movie.title %></h1>
           <div class="flex items-center">
@@ -125,15 +132,17 @@ include('components/carousel.ejs')%> <%} %>
           </div>
         </div>
       </div>
-      <%}); %>
+      <%}}); %>
     </div>
   </div>
 </div>
 <div class="py-6 bg-white dark:bg-gray-900 flex justify-center">
   <div class="w-full md:w-3/4">
-    <div class="m-4 flex justify-between text-gray-800 dark:text-white px-2">
+    <div
+      class="m-4 flex justify-between text-gray-800 dark:text-white px-2 py-2"
+    >
       <h2 class="text-2xl font-bold">Upcoming</h2>
-      <div>
+      <a href="/upcoming">
         <svg
           class="w-6 h-6"
           aria-hidden="true"
@@ -149,12 +158,12 @@ include('components/carousel.ejs')%> <%} %>
             d="M9 1v16M1 9h16"
           />
         </svg>
-      </div>
+      </a>
     </div>
     <div
       class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full px-4"
     >
-      <% upcomingMovie.forEach(movie => {%>
+      <% upcomingMovie.forEach((movie, index) => { if (index<12) {%>
       <div class="relative movie-card">
         <img
           class="h-auto max-w-full rounded-lg"
@@ -162,7 +171,8 @@ include('components/carousel.ejs')%> <%} %>
           alt=""
         />
         <div
-          class="movie-info absolute hidden flex-col gap-4 items-center justify-center bg-slate-900 bg-opacity-30 w-full h-full z-10 top-0 text-white text-base font-bold text-center"
+          class="movie-info absolute hidden flex-col gap-4 items-center justify-center bg-slate-900 bg-opacity-30 w-full h-full z-10 top-0 text-white text-base font-bold text-center cursor-pointer"
+          data-movie-id="<%= movie.id %>"
         >
           <h1 class="text-2xl max-w-[75%]"><%= movie.title %></h1>
           <div class="flex items-center">
@@ -192,7 +202,7 @@ include('components/carousel.ejs')%> <%} %>
           </p>
         </div>
       </div>
-      <%}); %>
+      <%}}); %>
     </div>
   </div>
 </div>
