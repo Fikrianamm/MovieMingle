@@ -12,6 +12,10 @@ This is my practice project for consuming the TMDB API.
 
 ![Preview Screenshot](https://github.com/Fikrianamm/MovieMingle/assets/106758350/6c1bfddc-3a74-465b-abb7-ebbf7618b3e5)
 
+![image](https://github.com/Fikrianamm/MovieMingle/assets/106758350/e374d995-7901-4c02-9ace-732c72e2b3e6)
+
+![image](https://github.com/Fikrianamm/MovieMingle/assets/106758350/e414ad77-1f85-4130-8796-66ec49906abf)
+
 ## Introduction
 
 This project is built with:
